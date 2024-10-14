@@ -5,8 +5,9 @@
   <base href="/">
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="Description" content="Demonstration for un-sdg2">
+  <meta name="Description" content="Demonstration for un-sdg">
 
+  <!--styling and visual properties customization-->
   <style>
     :root, html, body {
       margin: 0;
@@ -16,35 +17,52 @@
     #demo {
       margin: var(--ddd-spacing-2);
     }
-    un-sdg2 {
+    un-sdg {
       margin: var(--ddd-spacing-2);
       border: var(--ddd-border-md);
       border-radius: var(--ddd-radius-lg);
     }
-    un-sdg2:hover {
+    un-sdg:hover {
       box-shadow: var(--ddd-boxShadow-sm);
     }
     #example {
-      --un-sdg2-font-size: var(--ddd-font-size-l);
+      --un-sdg-font-size: var(--ddd-font-size-l);
       background-color: var(--ddd-accent-2);
       color: var(--ddd-primary-17);
     }
   </style>
-  <title>un-sdg2</title>
+  <title>un-sdg</title>
 </head>
 
 <body>
-  <div id="demo">
-    <h1>un-sdg2</h1>
-    <!-- this is going to do whatever the tag's defaults are -->
-    <h2>Default</h2>
-    <un-sdg2></un-sdg2>
-    <h2>Slot usage</h2>
-    <un-sdg2 data-accent="2" data-primary="17"><div>Sample slot content</div></un-sdg2>
-    <h2>Property usage</h2>
-    <un-sdg2 id="example" title="Sample property title"></un-sdg2>
-  </div>
-  <script type="module" src="./src/un-sdg2.js"></script>
+
+  <!-- Button to change the displayed goal -->
+  <button>Change Goal</button>
+
+  <!-- Various un-sdg elements displaying different goals -->
+  <un-sdg id="goalCircle" goal="Circle"></un-sdg>
+  <un-sdg id="goalAll" goal="All"></un-sdg> <!-- Display all SDGs -->
+  <un-sdg id="goal1" goal="1"></un-sdg>
+  <un-sdg id="goal2" goal="2"></un-sdg>
+  <un-sdg id="goal3" goal="3"></un-sdg>
+  <un-sdg id="goal4" goal="4"></un-sdg>
+  <un-sdg id="goal5" goal="5"></un-sdg>
+  <un-sdg id="goal6" goal="6"></un-sdg>
+  <un-sdg id="goal7" goal="7"></un-sdg>
+  <un-sdg id="goal8" goal="8"></un-sdg>
+  <un-sdg id="goal9" goal="9"></un-sdg>
+  <un-sdg id="goal10" goal="10"></un-sdg>
+  <un-sdg id="goal11" goal="11"></un-sdg>
+  <un-sdg id="goal12" goal="12"></un-sdg>
+  <un-sdg id="goal13" goal="13"></un-sdg>
+  <un-sdg id="goal14" goal="14"></un-sdg>
+  <un-sdg id="goal15" goal="15"></un-sdg>
+  <un-sdg id="goal16" goal="16"></un-sdg>
+  <un-sdg id="goal17" goal="17"></un-sdg>
+
+
+  <un-sdg id="goal1ColorOnly" goal="1" colorOnly="true"></un-sdg>
+  <script type="module" src="./src/un-sdg.js"></script>
 
   <!-- Take HAX, the Web and you further down the rabbit hole -->
   <style>
@@ -84,13 +102,13 @@
     <summary>How to Develop</summary>
     <div class="content">
       <p>
-      
-        <strong>Checkout project on github:</strong> <a href="https://github.com/spfrha/un-sdg2" target="_blank" rel="nofollow">spfrha/un-sdg2</a>
-        
+
+        <strong>Checkout project on github:</strong> <a href="https://github.com/spfrha/un-sdg" target="_blank" rel="nofollow">spfrha/un-sdg</a>
+
       </p>
       <p>
         You can edit the current page by modifying <code>index.html</code><br />
-        To edit your <strong>un-sdg2</strong> tag, modify <code>src/un-sdg2.js</code>.
+        To edit your <strong>un-sdg</strong> tag, modify <code>src/un-sdg.js</code>.
         This file contains all the HTML, CSS and JavaScript used to render your elements above!
       </p>
       <p>
