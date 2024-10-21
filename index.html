@@ -8,10 +8,11 @@
   <meta name="Description" content="Demonstration for un-sdg">
 
   <style>
+    /*margin and padding */
     :root, html, body {
       margin: 0;
       padding: 0;
-      background-color: var(--ddd-accent-1);
+      background-color: var(--ddd-accent-1); /* Sets background color */
     }
     #demo {
       margin: var(--ddd-spacing-2);
@@ -22,7 +23,7 @@
 
 <body>
 
-  <!-- circle + all + all 17 goals -->
+   <!-- Render the circle and all goals, individual goals -->
   <un-sdg goal="circle"></un-sdg>
   <un-sdg goal="all"></un-sdg>
   <un-sdg goal="1"></un-sdg>
@@ -42,7 +43,7 @@
   <un-sdg goal="15"></un-sdg>
   <un-sdg goal="16"></un-sdg>
   <un-sdg goal="17"></un-sdg>
-
+  <!--color only versions-->
   <un-sdg goal="circle" color-only></un-sdg>
   <un-sdg goal="all" color-only></un-sdg>
   <un-sdg goal="1" color-only></un-sdg>
@@ -63,6 +64,7 @@
   <un-sdg goal="16" color-only></un-sdg>
   <un-sdg goal="17" color-only></un-sdg>
 
+  <!--randomly changes goal when button is pressed-->
   <button id="random">Change Goal</button>
   <script>
     document.querySelector('#random').addEventListener('click', function(event) {
@@ -71,16 +73,6 @@
       sdg.setAttribute('goal', randomNumber);
     });
   </script>
-
-  <un-sdg
-    id="random-sdg"
-    goal="2"
-    width="400px"
-    height="400px"
-    label="overridden alt text"
-    loading="eager"
-    fetchpriority="high"
-  ></un-sdg>
 
   <script type="module" src="./src/un-sdg.js"></script>
 

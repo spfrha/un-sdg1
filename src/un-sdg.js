@@ -1,6 +1,7 @@
 import { LitElement, html, css } from "lit";
 import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 
+// Array of goal data for each sdg
 const goalData = [
   { name: 'Zero Hunger', color: 'var(--un-sdg-goal-2)' },
   { name: 'Good Health and Well-being', color: 'var(--un-sdg-goal-3)' },
@@ -20,43 +21,45 @@ const goalData = [
   { name: 'Partnerships for the Goals', color: 'var(--un-sdg-goal-17)' },
 ];
 
+// Define a new web component class
 export class unSdg extends DDDSuper(LitElement) {
 
+  // custom tag name
   static get tag() {
     return "un-sdg";
   }
 
-  // setting default values for variables
+  // Constructor for default properties
   constructor() {
     super();
     this.goal = '1';
     this.label = '';
     this.alt = '';
     this.source = '';
-    this.colorOnly = false;
+    this.colorOnly = false; // Default for colorOnly mode
     this.height = '254px';
     this.width = '254px';
   }
 
-  // establishing variables
+  // Define attributes
   static get properties() {
     return {
       title: { type: String },
       goal: { type: String },
       label: { type: String },
       alt: { type: String },
-      source: { type: String },
+      source: { type: String }, // Source of the goal image
       colorOnly: { type: Boolean, attribute: 'color-only', reflect: true },
       height: { type: String },
       width: { type: String }
     };
   }
 
+  // Define the styles for the component
   static get styles() {
     return [super.styles,
     css`
-
-      /* styles applied to whole page */
+      /* colors for each goal */
       :host {
         --un-sdg-goal-1: rgb(235, 28, 44);
         --un-sdg-goal-2: rgb(210, 160, 42);
@@ -75,21 +78,20 @@ export class unSdg extends DDDSuper(LitElement) {
         --un-sdg-goal-15: rgb(63, 175, 73);
         --un-sdg-goal-16: rgb(1, 85, 138);
         --un-sdg-goal-17: rgb(25, 54, 103);
-
         display: inline-block;
-        color: var(--ddd-theme-primary);
+        color: var(--ddd-theme-primary); /
         background-color: var(--ddd-theme-accent);
         font-family: var(--ddd-font-navigation);
         font-size: var(--un-sdg-font-size, var(--ddd-font-size-s));
       }
 
-      /* creating and setting default values for image height and width based off constraints */
+      /* default height and width for images */
       img {
         height: var(--img-height, 254px);
         width: var(--img-width, 254px);
       }
 
-      /* styling for when colorOnly is true */
+      /* Style for colorOnly */
       .color-only {
         height: 254px;
         width: 254px;
@@ -97,31 +99,34 @@ export class unSdg extends DDDSuper(LitElement) {
     `];
   }
 
-  // if the goal has changed, update the image and color
+  // called when a property changes
   updated(changedProperties) {
     if (changedProperties.has('goal')) {
-      this.updateGoalImage();
+      this.updateGoalImage(); // Update the image
     }
   }
 
-  // looks at what goal is set to and sets the correct image and alt text accordingly
+  // Method to update the image source
   updateGoalImage() {
-    if(this.goal === 'circle') {
+    if (this.goal === 'circle') {
+      // If goal is circle show the SDG circle image
       this.source = new URL('../lib/svgs/circle.png', import.meta.url).href;
       this.alt = 'Sustainable Development Goals Circle';
     }
-    else if(this.goal === 'all') {
+    else if (this.goal === 'all') {
+      // If goal is all show the image with all SDGs
       this.source = new URL('../lib/svgs/all.png', import.meta.url).href;
       this.alt = 'All Sustainable Development Goals';
     }
     else {
+      //set the image and alt text based on goalData
       const goalNumber = parseInt(this.goal);
       this.source = new URL(`../lib/svgs/goal-${goalNumber}.svg`, import.meta.url).href;
       this.alt = `Goal ${goalNumber}: ${goalData[goalNumber - 1].name}`;
     }
   }
 
-  // render only the svg color if the selector is set
+  // render just the color block when colorOnly is true
   renderColor() {
     if (this.colorOnly == true) {
       const goalNumber = parseInt(this.goal);
@@ -131,24 +136,19 @@ export class unSdg extends DDDSuper(LitElement) {
       }
     }
   }
-
-  // render the svg normally
+  //method to render the svg
   renderSVG() {
-    // allows user to edit image height and width in html file
     const imgSize = `--img-width: ${this.width}; --img-height: ${this.height};`;
-
-    // html constructor
     return html`
-      <img style="${imgSize}"
+      <img style="${imgSize }"
         src="${this.source}"
         alt="${this.label || this.alt}"
         fetchpriority="low"
-        loading="lazy"
       />
     `;
   }
 
-  // deciode which render function to actually render
+  //decides whether to render the color block or the SVG image
   render() {
     if (this.colorOnly == true) {
       return this.renderColor();
@@ -158,11 +158,11 @@ export class unSdg extends DDDSuper(LitElement) {
     }
   }
 
-  // haxProperties integration via file reference
+  //method to get HAX properties
   static get haxProperties() {
-    return new URL(`./lib/${this.tag}.haxProperties.json`, import.meta.url)
-      .href;
+    return new URL(`./lib/${this.tag}.haxProperties.json`, import.meta.url).href;
   }
 }
 
+// Define the custom element
 globalThis.customElements.define(unSdg.tag, unSdg);
