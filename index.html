@@ -7,7 +7,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta name="Description" content="Demonstration for un-sdg">
 
-  <!--styling and visual properties customization-->
   <style>
     :root, html, body {
       margin: 0;
@@ -17,53 +16,75 @@
     #demo {
       margin: var(--ddd-spacing-2);
     }
-    un-sdg {
-      margin: var(--ddd-spacing-2);
-      border: var(--ddd-border-md);
-      border-radius: var(--ddd-radius-lg);
-    }
-    un-sdg:hover {
-      box-shadow: var(--ddd-boxShadow-sm);
-    }
-    #example {
-      --un-sdg-font-size: var(--ddd-font-size-l);
-      background-color: var(--ddd-accent-2);
-      color: var(--ddd-primary-17);
-    }
   </style>
   <title>un-sdg</title>
 </head>
 
 <body>
 
-  <!-- Button to change the displayed goal -->
-  <button>Change Goal</button>
+  <!-- circle + all + all 17 goals -->
+  <un-sdg goal="circle"></un-sdg>
+  <un-sdg goal="all"></un-sdg>
+  <un-sdg goal="1"></un-sdg>
+  <un-sdg goal="2"></un-sdg>
+  <un-sdg goal="3"></un-sdg>
+  <un-sdg goal="4"></un-sdg>
+  <un-sdg goal="5"></un-sdg>
+  <un-sdg goal="6"></un-sdg>
+  <un-sdg goal="7"></un-sdg>
+  <un-sdg goal="8"></un-sdg>
+  <un-sdg goal="9"></un-sdg>
+  <un-sdg goal="10"></un-sdg>
+  <un-sdg goal="11"></un-sdg>
+  <un-sdg goal="12"></un-sdg>
+  <un-sdg goal="13"></un-sdg>
+  <un-sdg goal="14"></un-sdg>
+  <un-sdg goal="15"></un-sdg>
+  <un-sdg goal="16"></un-sdg>
+  <un-sdg goal="17"></un-sdg>
 
-  <!-- Various un-sdg elements displaying different goals -->
-  <un-sdg id="goalCircle" goal="Circle"></un-sdg>
-  <un-sdg id="goalAll" goal="All"></un-sdg> <!-- Display all SDGs -->
-  <un-sdg id="goal1" goal="1"></un-sdg>
-  <un-sdg id="goal2" goal="2"></un-sdg>
-  <un-sdg id="goal3" goal="3"></un-sdg>
-  <un-sdg id="goal4" goal="4"></un-sdg>
-  <un-sdg id="goal5" goal="5"></un-sdg>
-  <un-sdg id="goal6" goal="6"></un-sdg>
-  <un-sdg id="goal7" goal="7"></un-sdg>
-  <un-sdg id="goal8" goal="8"></un-sdg>
-  <un-sdg id="goal9" goal="9"></un-sdg>
-  <un-sdg id="goal10" goal="10"></un-sdg>
-  <un-sdg id="goal11" goal="11"></un-sdg>
-  <un-sdg id="goal12" goal="12"></un-sdg>
-  <un-sdg id="goal13" goal="13"></un-sdg>
-  <un-sdg id="goal14" goal="14"></un-sdg>
-  <un-sdg id="goal15" goal="15"></un-sdg>
-  <un-sdg id="goal16" goal="16"></un-sdg>
-  <un-sdg id="goal17" goal="17"></un-sdg>
+  <un-sdg goal="circle" color-only></un-sdg>
+  <un-sdg goal="all" color-only></un-sdg>
+  <un-sdg goal="1" color-only></un-sdg>
+  <un-sdg goal="2" color-only></un-sdg>
+  <un-sdg goal="3" color-only></un-sdg>
+  <un-sdg goal="4" color-only></un-sdg>
+  <un-sdg goal="5" color-only ></un-sdg>
+  <un-sdg goal="6" color-only></un-sdg>
+  <un-sdg goal="7" color-only></un-sdg>
+  <un-sdg goal="8" color-only></un-sdg>
+  <un-sdg goal="9" color-only></un-sdg>
+  <un-sdg goal="10" color-only></un-sdg>
+  <un-sdg goal="11" color-only></un-sdg>
+  <un-sdg goal="12" color-only></un-sdg>
+  <un-sdg goal="13" color-only></un-sdg>
+  <un-sdg goal="14" color-only></un-sdg>
+  <un-sdg goal="15" color-only></un-sdg>
+  <un-sdg goal="16" color-only></un-sdg>
+  <un-sdg goal="17" color-only></un-sdg>
 
+  <button id="random">Change Goal</button>
+  <script>
+    document.querySelector('#random').addEventListener('click', function(event) {
+      const randomNumber = Math.floor(Math.random() * 17) + 1;
+      const sdg = document.getElementById('random-sdg');
+      sdg.setAttribute('goal', randomNumber);
+    });
+  </script>
 
-  <un-sdg id="goal1ColorOnly" goal="1" colorOnly="true"></un-sdg>
+  <un-sdg
+    id="random-sdg"
+    goal="2"
+    width="400px"
+    height="400px"
+    label="overridden alt text"
+    loading="eager"
+    fetchpriority="high"
+  ></un-sdg>
+
   <script type="module" src="./src/un-sdg.js"></script>
 
+  <!--ignore-->
   <!-- Take HAX, the Web and you further down the rabbit hole -->
   <style>
     #follow-the-white-rabbit {
@@ -103,7 +124,7 @@
     <div class="content">
       <p>
 
-        <strong>Checkout project on github:</strong> <a href="https://github.com/spfrha/un-sdg" target="_blank" rel="nofollow">spfrha/un-sdg</a>
+        <strong>Checkout project on github:</strong> <a href="https://github.com/nrousseau4/un-sdg" target="_blank" rel="nofollow">nrousseau4/un-sdg</a>
 
       </p>
       <p>
