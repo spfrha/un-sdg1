@@ -37,8 +37,8 @@ export class unSdg extends DDDSuper(LitElement) {
     this.alt = '';
     this.source = '';
     this.colorOnly = false; // Default for colorOnly mode
-    this.height = '254px';
-    this.width = '254px';
+    this.height = '250px';
+    this.width = '250px';
   }
 
   // Define attributes
